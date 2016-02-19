@@ -1,0 +1,42 @@
+/* Put any additional CSS here */
+
+body{
+	font-size: 14px;
+}
+
+th, td {
+	padding: 15px;
+}
+
+th {
+	text-align: center;
+}
+
+.centerText {
+	text-align: center;
+}
+
+#timeSpent {
+	width: 225px;
+}
+
+#levelsAndTime .row{
+	margin-bottom: 10px;
+	margin-left: 50px;
+}
+
+#submitButton {
+	margin-top: 20px;
+}
+
+#lastSubmitted {
+	margin-top: 5px;
+}
+
+.warning {
+	color: red;
+}
+
+.removeBtn {
+	margin-left: 10px;
+}

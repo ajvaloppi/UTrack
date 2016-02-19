@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>UTrack!</title>
+    <link rel="stylesheet" href="css/ext/bootstrap.css"/>
+    <link rel="stylesheet" href="css/utrack.css"/>
+</head>
+<body>
+
+    <div id="app-container" class="container">
+
+        <header>
+            <h1>UTrack! <small>Track and analyze data that matters to you!</small></h1>
+        </header>
+        <div id="nav_div">
+            <!-- For the usages of row and col classes, refer to Bootstrap API -->
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li id="nav-input-tab" class="active"><a href="#input">Input</a></li>                
+                        <li id="nav-analysis-tab"><a href="#analysis">Analysis</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="input-div">
+            <h2></h2>
+            <!-- Put HTML here to support user input of data -->
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-3" id="activityList">
+                    <!--radio buttons get made at load time-->
+                </div>
+
+                <div class="col-sm-5" id="levelsAndTime">
+                    <div class="row">
+                        <select id="energyLevel">
+                            <option value="" selected disabled>Choose an Energy Level</option>
+                            <option value="5">5 (high energy)</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1 (low energy)</option>
+                        </select>
+                        <span class="warning hidden" id="energyWarning"><span class="glyphicon glyphicon-exclamation-sign"></span> Please choose an energy level!</span>
+                    </div>
+                    <div class="row">
+                        <select id="stressLevel">
+                            <option value="" selected disabled>Choose an Stress Level</option>
+                            <option value="5">5 (high stress)</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1 (low stress)</option>
+                        </select>
+                        <span class="warning hidden" id="stressWarning"><span class="glyphicon glyphicon-exclamation-sign"></span> Please choose a stress level!</span>
+                    </div>
+                    <div class="row">
+                        <select id="happinessLevel">
+                            <option value="" selected disabled>Choose an Happiness Level</option>
+                            <option value="5">5 (high happiness)</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1 (low happiness)</option>
+                        </select>
+                        <span class="warning hidden" id="happinessWarning"><span class="glyphicon glyphicon-exclamation-sign"></span> Please choose a happiness level!</span>
+                    </div>
+                    <div class="row">
+                        <input id="timeSpent" type="number" name="timeSpent" placeholder="How many minutes were spent?"> minutes </br>
+                        <span class="warning hidden" id="timeWarning"><span class="glyphicon glyphicon-exclamation-sign"></span> Please enter time spent!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 centerText">
+                    <button class="btn btn-lg btn-success" id="submitButton">Submit!</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 centerText" id="lastSubmitted" >You have not submitted any entries yet!</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 centerText" id="clickToSeeAll" ><small>Click <a href="#analysis" id="linkToAll">here</a> to see all previous entries!</small></div>
+            </div>
+        </div>
+
+        <div id="analysis-div" class="hidden">
+            <h2></h2>
+            <!-- Put HTML here to support users in analyzing their data -->
+            <div class="row hidden" id="analysisWithData">
+                <div class="col-sm-2 col-sm-offset-3">
+                    <div></div>
+                    <form id="typesOfGraphs">
+                        <input id="tableRadio" type="radio" name="graphs" value='table' checked> Total Time per Acitivty </br>
+                        <input id="graphRadio" type="radio" name="graphs" value='graph'> Averages per Activity </br>
+                        <input id="listRadio" type="radio" name="graphs" value='list'> All Previous Entries</br>
+                    </form>
+                </div>
+                <div class="col-sm-5 col-sm-offset-1" id="analysisTableDiv">
+                    
+                </div>
+                <div class="col-sm-5 col-sm-offset-1 hidden" id="analysisListDiv">
+                    
+                </div>
+                <div class="col-sm-5 hidden" id="analysisGraphDiv">
+                    <canvas id="graphCanvas" width="400px"></canvas>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 centerText" id="noData">
+                    You have not submitted any entries yet! </br> Click <a href="#input" id="linktoInput">here</a> to submit an entry!
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div id="unit-tests">
+                <!-- Keep this here so TAs can run your unit tests -->
+                <a href="unit_tests.html"><button class="btn btn-sm btn-danger">Run Unit Tests</button></a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="js/ext/underscore.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/utrack.js"></script>
+</body>
+</html>
